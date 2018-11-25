@@ -40,9 +40,7 @@ func changeState(at item: Int ) -> Bool{
 }
 
 func moveItem(fromIndex: Int, toIndex : Int){
-    print(ToDoItems[fromIndex]["isCompleted"]!)
     let from = ToDoItems[fromIndex]
-    print(from["isCompleted"]!)
     removeItem(at: fromIndex)
     ToDoItems.insert(from, at: toIndex)
 }

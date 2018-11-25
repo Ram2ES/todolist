@@ -18,20 +18,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cellId" textLabel="EJH-BN-qnr" style="IBUITableViewCellStyleDefault" id="fTx-8t-ptv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="EJH-BN-qnr" imageView="EMV-5K-AXr" style="IBUITableViewCellStyleDefault" id="fTx-8t-ptv" userLabel="Cell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fTx-8t-ptv" id="yEG-ih-PkI">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EJH-BN-qnr">
-                                            <rect key="frame" x="16" y="0.0" width="319" height="43.5"/>
+                                            <rect key="frame" x="58" y="0.0" width="301" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="markUnchecked" id="EMV-5K-AXr">
+                                            <rect key="frame" x="16" y="8" width="27" height="27"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -43,18 +47,16 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="y5m-zI-dmz">
-                        <rightBarButtonItems>
-                            <barButtonItem title="+" id="HgT-Ku-meC">
-                                <connections>
-                                    <action selector="pushAddAction:" destination="7be-t3-jW6" id="q2i-NW-9Dr"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="4Hs-ah-7tF">
-                                <connections>
-                                    <action selector="pushEditAction:" destination="7be-t3-jW6" id="x4z-gB-7r2"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" width="3" systemItem="edit" id="4Hs-ah-7tF">
+                            <connections>
+                                <action selector="pushEditAction:" destination="7be-t3-jW6" id="x4z-gB-7r2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="+" id="HgT-Ku-meC">
+                            <connections>
+                                <action selector="pushAddAction:" destination="7be-t3-jW6" id="q2i-NW-9Dr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -81,4 +83,7 @@
             <point key="canvasLocation" x="56.799999999999997" y="151.57421289355324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="markUnchecked" width="27" height="27"/>
+    </resources>
 </document>

@@ -30,12 +30,11 @@ class TableViewController: UITableViewController {
     }
     @IBAction func pushEditAction(_ sender: Any) {
         tableView.setEditing(!tableView.isEditing, animated: true)
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.tableFooterView = UIView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -58,15 +57,15 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         let currentItem = ToDoItems[indexPath.row]
         cell.textLabel?.text = currentItem["Name"] as? String
         
         if (currentItem["isComleted"] as? Bool) == true{
-            cell.accessoryType = .checkmark
+            cell.imageView?.image = #imageLiteral(resourceName: "markChecked")
         } else {
-            cell.accessoryType = .none
+            cell.imageView?.image = #imageLiteral(resourceName: "markUnchecked")
         }
         
         return cell
@@ -97,9 +96,9 @@ class TableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if changeState(at: indexPath.row) {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "markChecked")
         } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "markUnchecked")
         }
     }
 
@@ -107,7 +106,6 @@ class TableViewController: UITableViewController {
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         moveItem(fromIndex: fromIndexPath.row, toIndex: to.row)
-        tableView.reloadData()
     }
     
 
